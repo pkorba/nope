@@ -18,7 +18,7 @@ class NopeBot(Plugin):
             await evt.respond("> **Usage:**  \n"
                               "> Reply to the bot's message that you want to remove with `!nope` or react to it with ❌ emoji.  \n"
                               "> It only works with messages that are direct reply to your own command "
-                              "or if you have permission to delete messages of other users in this room.")
+                              "or reply to a command in general if you have permission to delete messages of other users in this room.")
             return
         bot_message: MessageEvent = await self.client.get_event(room_id=evt.room_id, event_id=bot_message_id)
         await self.try_redact(evt, bot_message)
