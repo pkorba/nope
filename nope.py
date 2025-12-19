@@ -50,7 +50,11 @@ class NopeBot(Plugin):
         power_levels = None
         try:
             power_levels = await self.client.get_state_event(evt.room_id, EventType.ROOM_POWER_LEVELS)
-            user_level = power_levels.get_user_level(evt.sender)
+            # Create event contains information about the room owner in rooms v12
+            # Their power level cannot be determined from PowerLevelStateEventContent alone
+            state_events = await self.client.get_state(evt.room_id)
+            create_event = next((s_evt for s_evt in state_events if s_evt.type == EventType.ROOM_CREATE), None)
+            user_level = power_levels.get_user_level(evt.sender, create_event)
         except Exception as e:
             self.log.error(f"Failed to check user power level: {e}")
 
