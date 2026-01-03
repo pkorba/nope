@@ -1,13 +1,13 @@
 # Nope Bot
 
-A maubot plugin for Matrix messaging that redacts it's own messages.
+A maubot plugin that redacts its own messages.
 
 ![bot_nope](https://github.com/user-attachments/assets/e600ba59-c834-44ee-8dc4-20a2fe273ee7)
 
 
 ## Usage
 
-Reply to the bot's message that you want to redact with `[p]nope` or react to it with ❌ emoji.  
+Reply to the bot's message that you want to redact with `!nope` or react to it with ❌ emoji.  
 It only works with messages that are direct reply to your own command or reply to a command in general if you have permission to delete messages of other users.
 
 ## Notes
